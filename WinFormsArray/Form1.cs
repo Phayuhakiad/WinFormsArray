@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -94,11 +95,33 @@ namespace WinFormsArray
             {
                 for (int j = 0; j < n; j++)
                 {
-                    ResultData += student[i, j] + "-";
+                    ResultData += student[i, j] + "";
                 }
                 ResultData += Environment.NewLine;
             }
             MessageBox.Show(ResultData,"แสดงข้อมูลใน Array 2 มิติ");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string[] Fruits = { "ส้ม", "แอปเปิ้ล", "มะม่วง", "องุ่น", "ทุเรียน" };
+            comboBox1.Items.AddRange(Fruits);
+            listBox1.Items.AddRange(Fruits);
+            checkedListBox1.Items.AddRange(Fruits);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox1.SelectedIndex.ToString() + "-";
+            str += comboBox1.SelectedItem;
+            MessageBox.Show(str);
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = listBox1.SelectedIndex.ToString() + "-";
+            str += listBox1.SelectedItem;
+            MessageBox.Show(str);
         }
     }
 }
